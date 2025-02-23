@@ -37,9 +37,10 @@ export default function CreateRoom() {
   );
 }
 
-// ドラッグ可能な家具コンポーネント（nodeRef を使用）
+// DraggableFurniture コンポーネント
 function DraggableFurniture({ item }: { item: FurnitureItem }) {
-  const nodeRef = useRef<HTMLDivElement>(null);
+  // useRef を MutableRefObject<HTMLDivElement> にキャストすることで、nullを除外
+  const nodeRef = useRef<HTMLDivElement>(null) as React.MutableRefObject<HTMLDivElement>;
 
   return (
     <Draggable defaultPosition={item.defaultPosition} nodeRef={nodeRef}>
@@ -49,7 +50,7 @@ function DraggableFurniture({ item }: { item: FurnitureItem }) {
         style={{ width: '150px', height: '150px' }}
       >
         {item.id === 'closet' ? (
-          // クローゼットの場合、ENTERボタンを内部に埋め込む
+          // クローゼットの場合、内部に ENTER ボタンを埋め込む
           <div className="flex flex-col items-center">
             <span className="text-lg font-bold mb-2">{item.name}</span>
             <Link href="/bedroom/closet">
@@ -59,7 +60,7 @@ function DraggableFurniture({ item }: { item: FurnitureItem }) {
             </Link>
           </div>
         ) : (
-          // 他の家具は名前を表示
+          // その他の家具は名前を表示
           <span className="text-lg font-bold">{item.name}</span>
         )}
       </div>
