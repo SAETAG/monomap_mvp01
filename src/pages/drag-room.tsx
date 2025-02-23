@@ -1,8 +1,6 @@
-// pages/drag-room.tsx
-
+import Link from 'next/link';
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid'; // ランダムID生成用(インストール: npm i uuid)
-// npm i react-draggable を使う場合は import Draggable from 'react-draggable' など
 
 type Room = {
   id: string;
@@ -37,17 +35,24 @@ export default function DragRoomPage() {
         <h2>ドラッグ＆ドロップで部屋を配置</h2>
         <input
           type="text"
-          placeholder="部屋の名前"
+          placeholder="部屋の名前を記入"
           value={newRoomName}
           onChange={(e) => setNewRoomName(e.target.value)}
           style={{ marginRight: 8 }}
         />
         <button
-            onClick={handleAddRoom}
-            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 font-bold"
+          onClick={handleAddRoom}
+          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 font-bold"
         >
-            新しい部屋を登録
+          新しい部屋を登録
         </button>
+
+        {/* 「完成した間取りを見る」ボタンを追加 */}
+        <Link href="/room-selection">
+          <button className="mt-4 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 font-bold">
+            完成した間取りを見る
+          </button>
+        </Link>
       </div>
 
       {/* 部屋を描画 */}
@@ -78,7 +83,6 @@ function DraggableRoom({
 
   const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
     setIsDragging(true);
-    // クリック位置とroom.x, room.yの差を計算
     const offsetX = e.clientX - room.x;
     const offsetY = e.clientY - room.y;
     setDragOffset({ x: offsetX, y: offsetY });
