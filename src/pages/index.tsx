@@ -6,7 +6,7 @@ export default function Home() {
       <h1 className="text-2xl font-bold mb-4">Welcome to MONO:MAP</h1>
       <Link href="/drag-room">
         <button className="px-4 py-2 bg-blue-500 text-white rounded">
-          新しい部屋を登録する！
+          まずは、間取りを完成させよう！
         </button>
       </Link>
     </main>

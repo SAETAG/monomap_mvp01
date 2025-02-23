@@ -53,7 +53,7 @@ export default function Bedroom() {
   // 次の画面へ進む（選択された家具情報はコンソール出力）
   const handleProceed = () => {
     console.log('選択された家具:', furnitureList.filter(item => item.selected));
-    router.push('/bedroom/create-room'); // 遷移先を /bedroom/create-room に変更
+    router.push('/tutorial/closet'); // 次のチュートリアル画面へ遷移（例）
   };
 
   return (

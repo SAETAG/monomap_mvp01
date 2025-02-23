@@ -31,7 +31,7 @@ export default function DragRoomPage() {
   return (
     <div style={{ width: '100%', height: '100vh', position: 'relative' }}>
       <div style={{ padding: 16, background: '#f1f1f1' }}>
-        <h1>部屋の間取りを登録しよう</h1>
+        <h1>家の中にある部屋を登録しよう✨</h1>
         <h2>ドラッグ＆ドロップで部屋を配置</h2>
         <input
           type="text"
