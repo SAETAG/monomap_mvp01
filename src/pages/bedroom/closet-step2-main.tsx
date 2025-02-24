@@ -5,7 +5,6 @@ import { useRouter } from 'next/router';
 
 export default function ClosetStep1() {
   const router = useRouter();
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
   
 
   return (
