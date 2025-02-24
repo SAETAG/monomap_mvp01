@@ -1,6 +1,5 @@
 // pages/bedroom/closet-step1.tsx
 
-import { useState } from 'react';
 import { useRouter } from 'next/router';
 
 export default function ClosetStep1() {
