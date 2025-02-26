@@ -1,9 +1,9 @@
-// src/pages/bedroom/closet-step8-intro.tsx
-
+// src/pages/bedroom/closet-step8.tsx
+/* eslint-disable @next/next/no-img-element */
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 
-export default function ClosetStep8Intro() {
+export default function ClosetStep8() {
   const router = useRouter();
   const [beforeFile, setBeforeFile] = useState<File | null>(null);
   const [beforePreview, setBeforePreview] = useState<string | null>(null);
@@ -34,8 +34,9 @@ export default function ClosetStep8Intro() {
           onClick={() => router.push('/bedroom/closet-step7-main')}
           className="px-3 py-1 bg-white text-black rounded hover:bg-gray-200 transition"
         >
-          前のステップに戻る
+          前の画面に戻る
         </button>
+  
       </div>
 
       {/* ページタイトル */}

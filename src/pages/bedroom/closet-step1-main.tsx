@@ -9,10 +9,10 @@ export default function ClosetStep1() {
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [advice, setAdvice] = useState<string | null>(null);
   
-  // 現状のクローゼットの問題点
-  const [closetIssue, setClosetIssue] = useState("クローゼットが散らかっている");
-  // どんなクローゼットにしたいか
-  const [desiredCloset, setDesiredCloset] = useState("コーデがすぐに決まるクローゼット");
+  // 現状と希望をひとつの入力欄で管理する
+  const [closetDescription, setClosetDescription] = useState(
+    "現状: クローゼットが散らかっている。  希望: コーデがすぐに決まるクローゼット"
+  );
 
   // ファイル選択時にプレビューURLを生成
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,7 +32,9 @@ export default function ClosetStep1() {
       return;
     }
     // ここで Dify.AI へのAPIコールなどを行う想定
-    setAdvice("現状のクローゼットは少し散らかっているようです。まずは不要なものを断捨離して、よく使うアイテムを前に出すと良いですよ！");
+    setAdvice(
+      "現状のクローゼットは少し散らかっているようです。まずは不要なものを断捨離して、よく使うアイテムを前に出すと良いですよ！"
+    );
   };
 
   return (
@@ -84,28 +86,15 @@ export default function ClosetStep1() {
         </div>
       )}
 
-      {/* 現状のクローゼットの問題点入力 */}
+      {/* 統合した入力欄：現状の問題点と希望するクローゼットのイメージ */}
       <h1 className="text-3xl font-bold text-green-800 mb-4">
-        現状のクローゼットの問題点を書き出してみよう✨
+        現状と希望を書いてみよう✨
       </h1>
       <div className="mb-6 w-full max-w-md">
         <input
           type="text"
-          value={closetIssue}
-          onChange={(e) => setClosetIssue(e.target.value)}
-          className="border border-green-300 p-2 rounded w-full"
-        />
-      </div>
-
-      {/* どんなクローゼットにしたいか入力 */}
-      <h1 className="text-3xl font-bold text-green-800 mb-4">
-        どんなクローゼットにしたいか書いてみよう✨
-      </h1>
-      <div className="mb-6 w-full max-w-md">
-        <input
-          type="text"
-          value={desiredCloset}
-          onChange={(e) => setDesiredCloset(e.target.value)}
+          value={closetDescription}
+          onChange={(e) => setClosetDescription(e.target.value)}
           className="border border-green-300 p-2 rounded w-full"
         />
       </div>

@@ -1,10 +1,9 @@
-// pages/bedroom/closet-step1.tsx
+// src/pages/bedroom/closet-step2-main.tsx
 
 import { useRouter } from 'next/router';
 
-export default function ClosetStep1() {
+export default function ClosetStep2Main() {
   const router = useRouter();
-  
 
   return (
     <div className="relative min-h-screen flex flex-col items-center justify-center bg-green-100 p-6">
@@ -29,10 +28,12 @@ export default function ClosetStep1() {
         Step2: 事前準備をしよう✨
       </h2>
 
-      {/* 「箱を三つ用意しよう」セクション */}
+      {/* サブタイトル */}
       <h1 className="text-3xl font-bold text-green-800 mb-4">
         箱を三つ用意しよう✨
       </h1>
+
+      {/* 箱の表示 */}
       <div className="flex space-x-4">
         <div className="w-32 h-32 border-4 border-green-600 flex items-center justify-center rounded-lg bg-white">
           <span className="text-xl font-bold text-green-800">廃棄</span>
