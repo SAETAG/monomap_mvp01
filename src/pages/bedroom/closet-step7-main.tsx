@@ -1,11 +1,12 @@
-// src/pages/bedroom/closet-step6-main.tsx
+// src/pages/bedroom/closet-step7-main.tsx
 
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 
-export default function ClosetStep6Main() {
+export default function ClosetStep7Main() {
   const router = useRouter();
-  
+
   // 撮影したアイテムのリスト（id, プレビュー画像URL, アイテム名）
   const [capturedItems, setCapturedItems] = useState<
     Array<{ id: number; preview: string; name: string }>
@@ -70,11 +71,15 @@ export default function ClosetStep6Main() {
           <ul className="space-y-4">
             {capturedItems.map(item => (
               <li key={item.id} className="flex items-center space-x-4 border p-2 rounded shadow">
-                <img
-                  src={item.preview}
-                  alt={item.name}
-                  className="w-20 h-auto rounded"
-                />
+                <div className="relative w-20 h-20">
+                  <Image
+                    src={item.preview}
+                    alt={item.name}
+                    layout="fill"
+                    objectFit="contain"
+                    className="rounded"
+                  />
+                </div>
                 <span className="text-lg font-semibold">{item.name}</span>
               </li>
             ))}

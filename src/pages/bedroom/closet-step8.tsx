@@ -1,19 +1,18 @@
 // src/pages/bedroom/closet-step8.tsx
-/* eslint-disable @next/next/no-img-element */
+
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 
 export default function ClosetStep8() {
   const router = useRouter();
-  const [beforeFile, setBeforeFile] = useState<File | null>(null);
+  // 未使用の beforeFile / afterFile は削除して、プレビューURLのみ管理します。
   const [beforePreview, setBeforePreview] = useState<string | null>(null);
-  const [afterFile, setAfterFile] = useState<File | null>(null);
   const [afterPreview, setAfterPreview] = useState<string | null>(null);
 
   const handleBeforeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
-      setBeforeFile(file);
       setBeforePreview(URL.createObjectURL(file));
     }
   };
@@ -21,7 +20,6 @@ export default function ClosetStep8() {
   const handleAfterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
-      setAfterFile(file);
       setAfterPreview(URL.createObjectURL(file));
     }
   };
@@ -36,7 +34,6 @@ export default function ClosetStep8() {
         >
           前の画面に戻る
         </button>
-  
       </div>
 
       {/* ページタイトル */}
@@ -60,11 +57,16 @@ export default function ClosetStep8() {
             className="border border-green-300 p-2 rounded mb-2"
           />
           {beforePreview && (
-            <img
-              src={beforePreview}
-              alt="Before Preview"
-              className="w-64 h-auto rounded shadow-md"
-            />
+            <div className="relative w-64 h-64">
+              <Image
+                src={beforePreview}
+                alt="Before Preview"
+                layout="fill"
+                objectFit="contain"
+                unoptimized
+                className="rounded shadow-md"
+              />
+            </div>
           )}
         </div>
         {/* After */}
@@ -78,11 +80,16 @@ export default function ClosetStep8() {
             className="border border-green-300 p-2 rounded mb-2"
           />
           {afterPreview && (
-            <img
-              src={afterPreview}
-              alt="After Preview"
-              className="w-64 h-auto rounded shadow-md"
-            />
+            <div className="relative w-64 h-64">
+              <Image
+                src={afterPreview}
+                alt="After Preview"
+                layout="fill"
+                objectFit="contain"
+                unoptimized
+                className="rounded shadow-md"
+              />
+            </div>
           )}
         </div>
       </div>

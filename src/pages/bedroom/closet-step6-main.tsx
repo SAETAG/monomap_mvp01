@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 
 export default function ClosetStep6Main() {
   const router = useRouter();
@@ -81,11 +82,13 @@ export default function ClosetStep6Main() {
         />
       </div>
       {emptyClosetPreview && (
-        <div className="mb-6">
-          <img 
+        <div className="mb-6 relative" style={{ width: '256px', height: '256px' }}>
+          <Image 
             src={emptyClosetPreview}
             alt="Empty Closet Preview"
-            className="w-64 h-auto rounded shadow-md"
+            layout="fill"
+            objectFit="contain"
+            className="rounded shadow-md"
           />
         </div>
       )}
