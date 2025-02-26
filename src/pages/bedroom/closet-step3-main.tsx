@@ -36,7 +36,7 @@ export default function ClosetStep1() {
       {/* 上部左側のナビゲーションボタン */}
       <div className="absolute top-4 left-4 flex space-x-4">
         <button
-          onClick={() => router.push('/bedroom/closet-step3-intro')}
+          onClick={() => router.push('/bedroom/closet-step3-tutorial')}
           className="px-3 py-1 bg-white text-black rounded hover:bg-gray-200 transition"
         >
           前のステップに戻る
